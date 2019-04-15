@@ -6,16 +6,16 @@ using System.Data.Entity;
 
 namespace MessageApp.Models
 {
-    public class DBInitializer : DropCreateDatabaseAlways<MessageContext>
+    public class DBInitializer : DropCreateDatabaseAlways<MessageContext>  //При запуске каждый раз пересоздает БД заново
     {
         protected override void Seed(MessageContext context)
         {
-            context.Users.Add(new User() { Name = "Владимир", Email = "some1@ya.ru", Password = "123"});
-            context.Users.Add(new User() { Name = "Евгений", Email = "some2@ya.ru", Password = "123" });
-            context.Users.Add(new User() { Name = "Дмитрий", Email = "some3@ya.ru", Password = "123" });
-            context.Users.Add(new User() { Name = "Иван", Email = "some4@ya.ru", Password = "123" });
+            context.Users.Add(new User() { Name = "Владимир", Email = "some1@ya.ru", Password = "123"});//Id должно присвоится автоматически при добавлении строки в таблицу
+            context.Users.Add(new User() { Name = "Евгений", Email = "some2@ya.ru", Password = "456" });
+            context.Users.Add(new User() { Name = "Дмитрий", Email = "some3@ya.ru", Password = "789" });
+            context.Users.Add(new User() { Name = "Иван", Email = "some4@ya.ru", Password = "101" });
 
-            context.Messages.Add(new Message() { Boby = "Тестовое сообщение1" });
+            context.Messages.Add(new Message() { Boby = "Тестовое сообщение1" });//Id должно присвоится автоматически
             context.Messages.Add(new Message() { Boby = "Тестовое сообщение2" });
             context.Messages.Add(new Message() { Boby = "Тестовое сообщение3" });
             context.Messages.Add(new Message() { Boby = "Тестовое сообщение4" });
