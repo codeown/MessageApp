@@ -18,7 +18,7 @@ namespace MessageApp.Controllers
 
         //===========================
         MessageContext messageContext = new MessageContext();  //Создаем новый объект для для обращения к БД
-        public ActionResult About()
+        public ActionResult AllUsers()
         {
             //Извлекаем данные из  таблицы Users
             IEnumerable<User> users = messageContext.Users;
@@ -33,6 +33,11 @@ namespace MessageApp.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Registration()
+        {            
             return View();
         }
     }
