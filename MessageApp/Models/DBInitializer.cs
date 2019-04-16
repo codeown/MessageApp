@@ -20,10 +20,10 @@ namespace MessageApp.Models
             context.Messages.Add(new Message() { Boby = "Тестовое сообщение3" });
             context.Messages.Add(new Message() { Boby = "Тестовое сообщение4" });
 
-            context.SendMessages.Add(new SendMessage() { MessageId = 3, DateTime = DateTime.Now, FromUser = 1, ToUser = 4 }); //Конечно не верно использовать DateTime.Now, но времени разбираться в правильном формате не было
-            context.SendMessages.Add(new SendMessage() { MessageId = 1, DateTime = DateTime.Now, FromUser = 4, ToUser = 3 });
-            context.SendMessages.Add(new SendMessage() { MessageId = 4, DateTime = DateTime.Now, FromUser = 2, ToUser = 1 });
-            context.SendMessages.Add(new SendMessage() { MessageId = 2, DateTime = DateTime.Now, FromUser = 3, ToUser = 2 });
+            //context.SendMessages.Add(new SendMessage() { MessageId = 3, DateTime = DateTime.Now, FromUser = 1, ToUser = 4 }); //Конечно не верно использовать DateTime.Now, но времени разбираться в правильном формате не было
+            //context.SendMessages.Add(new SendMessage() { MessageId = 1, DateTime = DateTime.Now, FromUser = 4, ToUser = 3 });
+            //context.SendMessages.Add(new SendMessage() { MessageId = 4, DateTime = DateTime.Now, FromUser = 2, ToUser = 1 });
+            //context.SendMessages.Add(new SendMessage() { MessageId = 2, DateTime = DateTime.Now, FromUser = 3, ToUser = 2 });
 
             base.Seed(context);
         }

@@ -9,21 +9,22 @@ namespace MessageApp.Controllers
 {
     public class HomeController : Controller
     {
-        MessageContext messageContext = new MessageContext();  //Добавляем для обращения к БД
+        
 
         public ActionResult Index()
         {            
             return View();
         }
-        
+
         //===========================
+        MessageContext messageContext = new MessageContext();  //Создаем новый объект для для обращения к БД
         public ActionResult About()
         {
             //Извлекаем данные из  таблицы Users
             IEnumerable<User> users = messageContext.Users;
 
             //Записываем Users в динамического свойство ViewBag
-            ViewBag.Users = User;
+            ViewBag.Users = users;
 
             return View();
         }
