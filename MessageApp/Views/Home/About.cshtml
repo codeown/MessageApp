@@ -1,7 +1,46 @@
 ﻿@{
-    ViewBag.Title = "About";
+    Layout = null; //Для представления не используется мастер-страница
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        About
+    </title>
+</head>
+
+<body>
+    <h3>Все пользователи</h3>
+
+    <br />
+
+    <table>
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Имя</td>
+                <td>E-mail</td>
+                <td>Пароль</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{
+                foreach (var user in ViewBag.Users)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.Password</td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</body>
+
+</html>
