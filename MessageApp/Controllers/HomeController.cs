@@ -9,21 +9,21 @@ namespace MessageApp.Controllers
 {
     public class HomeController : Controller
     {
-        
+        MessageContext messageContext = new MessageContext();  //Создаем новый объект для для обращения к БД (контекст данных)
 
         public ActionResult Index()
-        {            
+        {
             return View();
         }
 
         //===========================
-        MessageContext messageContext = new MessageContext();  //Создаем новый объект для для обращения к БД
+
         public ActionResult AllUsers()
         {
             //Извлекаем данные из  таблицы Users
             IEnumerable<User> users = messageContext.Users;
 
-            //Записываем Users в динамического свойство ViewBag
+            //Записываем Users в динамическое свойство ViewBag
             ViewBag.Users = users;
 
             return View();
@@ -35,10 +35,21 @@ namespace MessageApp.Controllers
 
             return View();
         }
-
+        
+        [HttpGet]
         public ActionResult Registration()
-        {            
+        {                      
             return View();
+        }
+
+        [HttpPost]
+        public string Registration(User user)
+        {
+            //Добавляем информацию о регистрации в БД
+            messageContext.Users.Add(user);
+
+            messageContext.SaveChanges();
+            return $"Спасибо, {user.Name}, вы зарегистрированы";
         }
     }
 }
